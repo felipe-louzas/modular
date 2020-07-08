@@ -281,7 +281,12 @@ class Modular {
 
   static Router _searchInModule(
       ChildModule module, String routerName, String path) {
-    path = "/$path".replaceAll('//', '/');
+    
+    // Do not add leading slash automatically. 
+    // See https://www.developerlibs.com/2019/10/flutter-dont-use-slashes-prefix-your-routes.html
+    //path = "/$path".replaceAll('//', '/');
+    path = "$path".replaceAll('//', '/'); 
+
     final routers = module.routers;
     routers.sort((preview, actual) {
       return preview.routerName.contains('/:') ? 1 : 0;
