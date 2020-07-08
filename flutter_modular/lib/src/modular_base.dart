@@ -271,9 +271,9 @@ class Modular {
         .expand((c) => c.executors)
         .forEach((c) => c.onGuarded(path, isActive: guard == null));
 
-    if (guard != null) {
-      throw ModularError("Path guarded : $path");
-    }
+    //if (guard != null) {
+    //  throw ModularError("Path guarded : $path");
+    //}
     return guard;
   }
 
